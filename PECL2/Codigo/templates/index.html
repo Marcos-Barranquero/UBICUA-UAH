@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cama Inteligente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+    <div class="content">
+        <h1>Cama Inteligente</h1>
+        <h2>Escoja la sesion que desea revisar</h2>
+        <div>
+            <table>
+                <tr>
+                    <th>Sesion</th>
+                    <th>Fecha</th>
+                </tr>
+                {% for task in tasks %}
+                <tr>
+                    {% set informe = "Sesion_" + task[2]|string + "_" + task[0].split(" ")[0] %}
+                    <td><a href={{informe}}>{{task[2]}}</a></td>
+                    <td><a href={{informe}}>{{task[0]}}</a></td>
+                </tr>
+                {% endfor %}
+        </table>
+        </div>
+    </div>
+</body>
+</html>
